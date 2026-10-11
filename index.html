@@ -1,0 +1,303 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jesteś wszystkim 💗</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Trebuchet MS", sans-serif;
+    background: linear-gradient(135deg, #ffd6e7, #fff0f5, #ffb6d2);
+    color: #c2185b;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+header {
+    padding: 45px 15px 15px;
+}
+
+h1 {
+    font-size: clamp(55px, 13vw, 110px);
+    margin: 0;
+    color: #f02d79;
+    text-shadow: 3px 4px 0 #ffb3d0;
+    letter-spacing: 5px;
+}
+
+.subtitle {
+    font-size: clamp(22px, 5vw, 35px);
+    font-style: italic;
+    margin: 15px 0;
+}
+
+.line {
+    color: #f04b91;
+    font-size: 22px;
+    letter-spacing: 3px;
+}
+
+.intro {
+    font-size: 17px;
+    padding: 0 20px;
+    color: #a91450;
+}
+
+.container {
+    max-width: 750px;
+    margin: 25px auto;
+    padding: 25px 18px;
+    background: rgba(255, 255, 255, 0.48);
+    border: 2px solid #ffb0d0;
+    border-radius: 28px;
+    box-shadow: 0 8px 30px #e7548020;
+}
+
+.reason {
+    background: rgba(255, 255, 255, 0.65);
+    border-radius: 16px;
+    padding: 15px 12px;
+    margin: 12px 0;
+    font-size: 17px;
+    line-height: 1.6;
+    transition: transform 0.2s, background 0.2s;
+    animation: appear 0.5s ease both;
+    min-height: 54px;
+}
+
+.reason:hover {
+    transform: scale(1.025);
+    background: #fff;
+}
+
+.reason span {
+    color: #f02d79;
+    font-weight: bold;
+}
+
+footer {
+    padding: 35px 15px 55px;
+    font-size: 24px;
+}
+
+.heart {
+    position: fixed;
+    bottom: -40px;
+    color: #ff4f94;
+    pointer-events: none;
+    animation: floatUp linear forwards;
+    z-index: -1;
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#welcomeScreen {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    background: linear-gradient(135deg, #ffd6e7, #fff0f5, #ffb6d2);
+}
+
+.welcome-heart {
+    font-size: 90px;
+    animation: pulse 1.5s infinite;
+}
+
+#welcomeScreen h2 {
+    font-size: clamp(30px, 8vw, 48px);
+    margin: 20px 0 10px;
+    color: #f02d79;
+}
+
+#welcomeScreen p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+#welcomeScreen button {
+    padding: 16px 28px;
+    border: none;
+    border-radius: 30px;
+    background: #f02d79;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: inherit;
+    cursor: pointer;
+    box-shadow: 0 5px 15px #e7548050;
+    transition: transform 0.2s;
+}
+
+#welcomeScreen button:hover {
+    transform: scale(1.06);
+}
+
+@keyframes pulse {
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="welcomeScreen">
+    <div class="welcome-heart">💗</div>
+    <h2>Hej, kochanie!</h2>
+    <p>Przygotowałem coś specjalnego dla Ciebie...</p>
+    <button onclick="enterSite()">Wejdź na stronę 💗</button>
+</div>
+
+<div id="pageContent" style="display: none;">
+    
+<audio id="backgroundMusic" loop>
+    <source src="piosenka.mp3" type="audio/mpeg">
+</audio>
+
+
+<header>
+    <h1>JESTEŚ</h1>
+    <div class="line">────── 💗 ──────</div>
+</header>
+
+<main class="container" id="reasons"></main>
+
+<footer>
+    <div style="font-size: 55px">💗</div>
+    Kocham Cię!
+    <p style="font-size: 16px">
+        Szczęśliwego Dnia Dziewczyn! 🌷
+    </p>
+</footer>
+</div>
+
+<script>
+
+const reasons = [
+    "jedyną dziewczyną, z którą chcę oglądać zaćmienia Słońca.", // 1
+    "jedyną dziewczyną, z którą chcę chodzić na randki.", // 2
+    "jedyną dziewczyną, z którą będę oglądał Twilight każdej jesieni.", // 3
+    "jedyną dziewczyną, na której uśmiech chcę patrzeć codziennie.", // 4
+    "jedyną dziewczyną, z którą chcę zwiedzić jak najwięcej miejsc.", // 5
+    "jedyną dziewczyną, z którą założę rodzinę.", // 6
+    "jedyną dziewczyną, z którą będę chodził na pikniki.", // 7
+    "jedyną dziewczyną, z którą będę się wszystkim dzielił.", // 8
+    "jedyną dziewczyną, o której będę pisał wiersze.", // 9
+    "jedyną dziewczyną, której kupuję słodycze i kwiaty.", // 10
+    "jedyną dziewczyną, z którą gadam nocami.", // 11
+    "jedyną dziewczyną, przy której czuję się tak komfortowo.", // 12
+    "jedyną dziewczyną, której bursztynowe oczy tak mnie hipnotyzują.", // 13
+    "jedyną dziewczyną, z którą mogę pogadać o wszystkim.", // 14
+    "jedyną dziewczyną, której chcę słuchać, gdy mam już dość wszystkich.", // 15
+    "jedyną dziewczyną, z którą piję napój, krzyżując ręce.", // 16
+    "jedyną dziewczyną, z którą chcę się miziać kciukami.", // 17
+    "jedyną dziewczyną, z którą wyobrażam sobie moją przyszłość.", // 18
+    "jedyną dziewczyną, na której tak mi zależy.", // 19
+    "jedyną dziewczyną, którą chcę mieć na planie filmowym jako fryzjerkę.", // 20
+    "jedyną dziewczyną, o której myślę cały czas.", // 21
+    "jedyną dziewczyną, której spełnię każde marzenie.", // 22
+    "jedyną dziewczyną, która jest moim światełkiem w tunelu.", // 23
+    "jedyną dziewczyną, która mi się podoba.", // 24
+    "jedyną dziewczyną, której chcę pokazywać moje miniaturki.", // 25
+    "jedyną dziewczyną, która tak dobrze mnie zna.", // 26
+    "jedyną dziewczyną, której pozwolę spać w moich ramionach.", // 27
+    "jedyną dziewczyną, której zawsze będę nosił torebkę.", // 28
+    "jedyną dziewczyną, której ręki nie lubię puszczać.", // 29
+    "jedyną dziewczyną, z którą chcę tworzyć co roku nowe playlisty.", // 30
+    "jedyną dziewczyną, która tak mi imponuje.", // 31
+    "jedyną dziewczyną, z którą mam świat w Minecrafcie.", // 32
+    "jedyną dziewczyną, z którą obejrzę każdy film.", // 33
+    "jedyną dziewczyną, której będę robił laurki.", // 34
+    "jedyną dziewczyną, z którą będę obgadywał każdego.", // 35
+    "jedyną dziewczyną, którą chcę otaczać opieką.", // 36
+    "jedyną dziewczyną, dla której złamałbym nawet największe obietnice.", // 37
+    "jedyną dziewczyną, której chcę śpiewać miłosne piosenki.", // 38
+    "jedyną dziewczyną, której komplementy tak na mnie działają.", // 39
+    "jedyną dziewczyną, z którą chcę słuchać nowych albumów.", // 40
+    "jedyną dziewczyną, która mnie motywuje i inspiruje.", // 41
+    "jedyną dziewczyną, której zawsze słucham.", // 42
+    "jedyną dziewczyną, z którą chcę tańczyć pod pełnią Księżyca.", // 43
+    "jedyną dziewczyną, którą będę kochał aż do nieskończoności." // 44
+];
+
+
+const list = document.getElementById("reasons");
+
+reasons.forEach((reason, index) => {
+    const item = document.createElement("div");
+    item.className = "reason";
+    item.style.animationDelay = `${index * 0.025}s`;
+
+    item.innerHTML =
+        `<span>♡ ${index + 1}.</span> — ${reason}`;
+
+    list.appendChild(item);
+});
+
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+
+    heart.textContent = ["♡", "♥", "💕", "💗"][
+        Math.floor(Math.random() * 4)
+    ];
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (16 + Math.random() * 22) + "px";
+
+    const duration = 5 + Math.random() * 5;
+    heart.style.animationDuration = duration + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), duration * 1000);
+}
+
+
+
+function enterSite() {
+    document.getElementById("welcomeScreen").style.display = "none";
+    document.getElementById("pageContent").style.display = "block";
+
+    window.scrollTo(0, 0);
+
+    const music = document.getElementById("backgroundMusic");
+    music.volume = 0.5;
+    music.play();
+
+    setInterval(createHeart, 500);
+}
+
+
+</script>
+
+</body>
+</html>
